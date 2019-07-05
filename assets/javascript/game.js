@@ -10,6 +10,10 @@ console.log(alphabetArr.toLocaleString());
 guesses = [];
 htmlArr = [];
 answerRemainder = answerArr.slice();
+answerRemainder.forEach(function(content,index,obj){
+    if(content === " "){obj.splice(index,1);}
+});
+console.log(answerRemainder);
 wins = 0;
 losses = 0;
 remainder = 9;
@@ -38,7 +42,6 @@ document.onkeyup = function (event) {
         remainder--;
         guesses.push(letter);
         alphabetArr.splice(alphabetArr.indexOf(letter), 1);
-        console.log(alphabetArr.toLocaleString());
     } else {
         guesses.push(letter);
         alphabetArr.splice(alphabetArr.indexOf(letter), 1);
@@ -55,17 +58,11 @@ function showCharacter(letter) {
             temp[0].innerHTML = letter;
         }
     }
-    answerRemainder.forEach(function (content, index, object) {
-        if (content === letter) {
-            object.splice(index, 1);
-        }
-        console.log(answerRemainder.toLocaleString());
+    answerRemainder = answerRemainder.filter(function(content){
+        return content !== letter;
     });
-    if(answerRemainder.length === 0){
-        alphabetArr = [];
-        alert("You've won!");
-    }
 }
+
 
 function updateStats() {
     hWins.innerHTML = "Wins: " + this.wins;
@@ -73,6 +70,10 @@ function updateStats() {
     hRemainder.innerHTML = "Guesses Left: " + remainder;
     hGuesses.innerHTML = "Your guesses thus far: " + guesses.toLocaleString();
     hAnswer.innerHTML = answer;
+    if(answerRemainder.length === 0){
+        alphabetArr = [];
+        alert("You've won!");
+    }
 }
 
 function generateHTML() {
