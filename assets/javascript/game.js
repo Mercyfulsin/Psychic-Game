@@ -30,7 +30,6 @@ generateHTML();
 
 // Captures keyboard input. Depending on the letter pressed it will "call" (execute) different functions.
 document.onkeyup = function (event) {
-
     // Captures the key press, converts it to lowercase, and saves it to a variable.
     var letter = event.key.toLowerCase();
     if (alphabetArr.indexOf(letter) === -1) {
@@ -68,11 +67,11 @@ function updateStats() {
     hAnswer.innerHTML = answer;
     if(answerRemainder.length === 0){
         alphabetArr = [];
-        alert("You've won!");
+        $('.toast').toast('show');
     }else if(remainder <= 0){
         console.log("test");
         alphabetArr = [];
-        alert("You've lost!");
+        $('.toast').toast('show');
     }
 }
 
