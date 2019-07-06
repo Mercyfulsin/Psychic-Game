@@ -14,3 +14,9 @@ body{
     color: white;
     background-image: url("../images/prism.png");
 }
+.toast-body{
+    background-color: #4444;
+}
+.toast-header{
+    background-color: #4445;
+}
