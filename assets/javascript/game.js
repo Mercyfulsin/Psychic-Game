@@ -13,7 +13,6 @@ answerRemainder = answerArr.slice();
 answerRemainder.forEach(function(content,index,obj){
     if(content === " "){obj.splice(index,1);}
 });
-console.log(answerRemainder);
 wins = 0;
 losses = 0;
 remainder = 9;
@@ -29,9 +28,6 @@ hWordArea = document.getElementById("wordArea");
 hUnderscoreArea = document.getElementById("underscoreArea");
 generateHTML();
 
-// g = document.createElement('div');
-// g.setAttribute("id", "Div1");
-
 // Captures keyboard input. Depending on the letter pressed it will "call" (execute) different functions.
 document.onkeyup = function (event) {
 
@@ -42,13 +38,13 @@ document.onkeyup = function (event) {
         remainder--;
         guesses.push(letter);
         alphabetArr.splice(alphabetArr.indexOf(letter), 1);
+        updateStats();
     } else {
         guesses.push(letter);
         alphabetArr.splice(alphabetArr.indexOf(letter), 1);
         showCharacter(letter);
+        updateStats();
     }
-
-    updateStats();
 };
 
 function showCharacter(letter) {
@@ -73,6 +69,10 @@ function updateStats() {
     if(answerRemainder.length === 0){
         alphabetArr = [];
         alert("You've won!");
+    }else if(remainder <= 0){
+        console.log("test");
+        alphabetArr = [];
+        alert("You've lost!");
     }
 }
 
