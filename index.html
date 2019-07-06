@@ -6,6 +6,7 @@
   <title>Psychic Game</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css">
 </head>
@@ -24,11 +25,11 @@
               <h4>Guess the name of the Star Wars Character I'm thinking of</h4>
             </h5>
             <p class="card-text">
-              <div id="wins">Wins: 0</div>
-              <div id="losses">Losses: 0</div>
+              <!-- <div id="wins">Wins: 0</div>
+              <div id="losses">Losses: 0</div> -->
               <div id="remainder">Guesses Left: 9</div>
               <div id="guesses">Your guesses thus far: </div>
-              <div id="answer" hidden="true">Correct Answer: </div>
+              <!-- <div id="answer" hidden="true">Correct Answer: </div> -->
 
             </p>
           </div>
@@ -52,7 +53,7 @@
       style="min-height: 200px;">
 
       <!-- Then put toasts within -->
-      <div class="toast" role="alert" data-autohide="false" aria-live="assertive" aria-atomic="true">
+      <div class="toast" role="alert" id="myToast" data-autohide="false" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
           <img src="https://cdn3.iconfinder.com/data/icons/shortcuts/512/letter-m-key-keyboard-512.png"
             class="rounded mr-2" width="50px" height="50px" alt="Testing">
