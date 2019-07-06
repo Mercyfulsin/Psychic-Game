@@ -18,7 +18,7 @@ losses = 0;
 remainder = 9;
 
 //HTML Variables
-var hWins, hLosses, hRemainder, hGuesses, hAnswer, hWordArea, hUnderscoreArea;
+var hWins, hLosses, hRemainder, hGuesses, hAnswer, hWordArea, hUnderscoreArea,toastText;
 hWins = document.getElementById("wins");
 hLosses = document.getElementById("losses");
 hRemainder = document.getElementById("remainder");
@@ -26,6 +26,7 @@ hGuesses = document.getElementById("guesses");
 hAnswer = document.getElementById("answer");
 hWordArea = document.getElementById("wordArea");
 hUnderscoreArea = document.getElementById("underscoreArea");
+toastText = document.getElementsByClassName("toast-body");
 generateHTML();
 
 // Captures keyboard input. Depending on the letter pressed it will "call" (execute) different functions.
@@ -67,10 +68,12 @@ function updateStats() {
     hAnswer.innerHTML = answer;
     if(answerRemainder.length === 0){
         alphabetArr = [];
+        toastText[0].innerHTML = "You won!";
         $('.toast').toast('show');
     }else if(remainder <= 0){
         console.log("test");
         alphabetArr = [];
+        toastText[0].innerHTML = "You lost!";
         $('.toast').toast('show');
     }
 }
